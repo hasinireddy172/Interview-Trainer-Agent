@@ -1,0 +1,17 @@
+# ── Tier 1: Core Flask + IBM (small, fast) ─────────────────────────────────
+flask==3.0.3
+python-dotenv==1.0.1
+werkzeug==3.0.3
+pdfplumber==0.11.4
+PyPDF2==3.0.1
+
+# ── Tier 2: IBM watsonx.ai SDK ─────────────────────────────────────────────
+ibm-watsonx-ai==1.1.2
+
+# ── Tier 3: RAG / Vector store (heaviest — install last) ───────────────────
+numpy==1.26.4
+sentence-transformers==3.1.1
+chromadb==0.5.5
+
+# ── Tier 4: Production server ──────────────────────────────────────────────
+gunicorn==22.0.0

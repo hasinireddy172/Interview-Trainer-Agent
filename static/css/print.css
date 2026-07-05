@@ -1,0 +1,29 @@
+/* print.css — Interview Trainer print / download styles */
+@media print {
+  #mainNav, .site-footer, .hero-section, .how-section,
+  .kb-section, #step1, #step2, .loading-overlay,
+  .results-header .btn, .results-tabs { display: none !important; }
+
+  body { background: #fff !important; color: #111 !important; }
+
+  .results-tab-content {
+    border: none !important;
+    padding: 0 !important;
+  }
+
+  .tab-pane { display: block !important; opacity: 1 !important; }
+
+  .question-card { border: 1px solid #ddd !important; background: #fff !important; margin-bottom: 1rem !important; }
+  .question-body { display: block !important; }
+  .q-chevron, .step-indicator, .section-badge { display: none !important; }
+
+  .q-section-content { background: #f8f9fa !important; color: #333 !important; border-left: 3px solid #0043ce !important; }
+  .q-section-title, .resume-section-title { color: #0043ce !important; }
+  .skill-chip { background: #e8f0fe !important; color: #0043ce !important; border: 1px solid #b3c8fd !important; }
+  .tips-card { background: #fff !important; border: 1px solid #ddd !important; }
+  .strength-chip { background: #e6f9ee !important; color: #198038 !important; }
+  .gap-chip { background: #fff3e0 !important; color: #ff832b !important; }
+
+  h3, h4, h5 { color: #111 !important; }
+  p, li { color: #333 !important; }
+}

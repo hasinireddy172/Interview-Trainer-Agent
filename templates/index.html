@@ -1,0 +1,397 @@
+{% extends "base.html" %}
+
+{% block title %}AI Interview Trainer — IBM Granite{% endblock %}
+
+{% block content %}
+
+<!-- ════════════════════════════════════════════
+     HERO SECTION
+════════════════════════════════════════════ -->
+<section class="hero-section">
+  <div class="hero-bg-pattern"></div>
+  <div class="container position-relative">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <div class="hero-badge mb-3">
+          <i class="bi bi-stars me-2"></i>AI-Powered Career Coach
+        </div>
+        <h1 class="hero-title">
+          Ace Your Next<br>
+          <span class="hero-highlight">Interview</span> with<br>
+          IBM Granite AI
+        </h1>
+        <p class="hero-subtitle">
+          Upload your resume, enter your target role, and get hyper-personalised
+          HR, Technical &amp; Behavioral questions with model answers — powered by
+          IBM watsonx.ai Granite models.
+        </p>
+        <div class="d-flex flex-wrap gap-3 mt-4">
+          <a href="#main-app" class="btn btn-hero-primary">
+            <i class="bi bi-rocket-takeoff me-2"></i>Start Training
+          </a>
+          <a href="#how-it-works" class="btn btn-hero-secondary">
+            <i class="bi bi-play-circle me-2"></i>See How It Works
+          </a>
+        </div>
+        <div class="hero-stats mt-5 d-flex flex-wrap gap-4">
+          <div class="hero-stat">
+            <div class="hero-stat-num">16+</div>
+            <div class="hero-stat-label">Questions Generated</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">3</div>
+            <div class="hero-stat-label">Interview Rounds</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">RAG</div>
+            <div class="hero-stat-label">Knowledge Enhanced</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 d-none d-lg-flex justify-content-center">
+        <div class="hero-illustration">
+          <div class="hero-card-float hero-card-1">
+            <i class="bi bi-file-earmark-person text-primary"></i>
+            <span>Resume Parsed</span>
+          </div>
+          <div class="hero-icon-wrap">
+            <i class="bi bi-cpu-fill"></i>
+          </div>
+          <div class="hero-card-float hero-card-2">
+            <i class="bi bi-patch-check text-success"></i>
+            <span>Questions Ready</span>
+          </div>
+          <div class="hero-card-float hero-card-3">
+            <i class="bi bi-graph-up-arrow text-warning"></i>
+            <span>Tips Generated</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     HOW IT WORKS
+════════════════════════════════════════════ -->
+<section class="how-section py-5" id="how-it-works">
+  <div class="container">
+    <div class="section-header text-center mb-5">
+      <div class="section-badge">Process</div>
+      <h2 class="section-title">How It Works</h2>
+      <p class="section-subtitle">Four simple steps to interview mastery</p>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+      <div class="col-sm-6 col-lg-3">
+        <div class="step-card">
+          <div class="step-num">01</div>
+          <div class="step-icon"><i class="bi bi-upload"></i></div>
+          <h5>Upload Resume</h5>
+          <p>Upload your PDF resume and our AI extracts skills, experience, projects and more.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="step-card">
+          <div class="step-num">02</div>
+          <div class="step-icon"><i class="bi bi-briefcase"></i></div>
+          <h5>Enter Job Role</h5>
+          <p>Tell us the role you're targeting — Software Engineer, Data Scientist, PM, etc.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="step-card">
+          <div class="step-num">03</div>
+          <div class="step-icon"><i class="bi bi-cpu"></i></div>
+          <h5>AI Generates</h5>
+          <p>IBM Granite AI crafts personalised questions across HR, Technical &amp; Behavioral rounds.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="step-card">
+          <div class="step-num">04</div>
+          <div class="step-icon"><i class="bi bi-trophy"></i></div>
+          <h5>Prepare &amp; Ace</h5>
+          <p>Review model answers, preparation tips, and questions to ask the interviewer.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     MAIN APPLICATION
+════════════════════════════════════════════ -->
+<section class="app-section py-5" id="main-app">
+  <div class="container">
+    <div class="section-header text-center mb-5">
+      <div class="section-badge">Let's Go</div>
+      <h2 class="section-title">Your Interview Coach</h2>
+      <p class="section-subtitle">Complete the steps below to get your personalised interview prep</p>
+    </div>
+
+    <!-- ── Step 1: Upload Resume ────────────────────────────────────────── -->
+    <div class="app-card mb-4" id="step1">
+      <div class="app-card-header">
+        <div class="step-indicator active">
+          <span class="step-dot">1</span>
+          <span>Upload Resume</span>
+        </div>
+        <div class="step-status" id="resumeStatus"></div>
+      </div>
+
+      <div class="app-card-body">
+        <div class="row g-4">
+          <div class="col-lg-6">
+            <div class="upload-zone" id="resumeDropZone">
+              <input type="file" id="resumeFile" accept=".pdf" class="upload-input" />
+              <div class="upload-icon">
+                <i class="bi bi-file-earmark-pdf"></i>
+              </div>
+              <div class="upload-text">
+                <strong>Drop your resume here</strong>
+                <span>or click to browse</span>
+              </div>
+              <div class="upload-hint">PDF only · Max 16 MB</div>
+              <div class="upload-filename" id="resumeFileName"></div>
+            </div>
+
+            <button class="btn btn-primary w-100 mt-3" id="uploadResumeBtn" disabled>
+              <i class="bi bi-cloud-upload me-2"></i>Parse Resume with AI
+            </button>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="resume-preview" id="resumePreview">
+              <div class="empty-state">
+                <i class="bi bi-person-lines-fill"></i>
+                <p>Upload your resume to see the extracted information here.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Step 2: Job Role + Generate ─────────────────────────────────── -->
+    <div class="app-card mb-4" id="step2">
+      <div class="app-card-header">
+        <div class="step-indicator" id="step2Indicator">
+          <span class="step-dot">2</span>
+          <span>Generate Interview Questions</span>
+        </div>
+      </div>
+
+      <div class="app-card-body">
+        <!-- Job Role Input -->
+        <div class="mb-4">
+          <label class="form-label fw-semibold" for="jobRole">
+            <i class="bi bi-briefcase me-1"></i>Target Job Role
+          </label>
+          <input type="text" id="jobRole" class="form-control form-control-lg"
+                 placeholder="e.g. Senior Software Engineer, Data Scientist, Product Manager…"
+                 disabled />
+        </div>
+
+        <!-- Per-Category Generate Buttons -->
+        <div class="gen-btn-grid">
+
+          <div class="gen-btn-card" id="genCard-hr">
+            <div class="gen-btn-icon"><i class="bi bi-people-fill"></i></div>
+            <div class="gen-btn-info">
+              <div class="gen-btn-title">HR Questions</div>
+              <div class="gen-btn-desc">Situational &amp; personality questions with model answers</div>
+            </div>
+            <div class="gen-btn-actions">
+              <span class="gen-btn-badge d-none" id="hrBadge"><i class="bi bi-check-circle-fill text-success me-1"></i>Generated</span>
+              <button class="btn btn-primary" id="genHrBtn" disabled>
+                <i class="bi bi-lightning-charge me-1"></i>Generate
+              </button>
+            </div>
+          </div>
+
+          <div class="gen-btn-card" id="genCard-technical">
+            <div class="gen-btn-icon"><i class="bi bi-code-slash"></i></div>
+            <div class="gen-btn-info">
+              <div class="gen-btn-title">Technical Questions</div>
+              <div class="gen-btn-desc">Foundational → Advanced questions with key concepts</div>
+            </div>
+            <div class="gen-btn-actions">
+              <span class="gen-btn-badge d-none" id="technicalBadge"><i class="bi bi-check-circle-fill text-success me-1"></i>Generated</span>
+              <button class="btn btn-primary" id="genTechnicalBtn" disabled>
+                <i class="bi bi-lightning-charge me-1"></i>Generate
+              </button>
+            </div>
+          </div>
+
+          <div class="gen-btn-card" id="genCard-behavioral">
+            <div class="gen-btn-icon"><i class="bi bi-stars"></i></div>
+            <div class="gen-btn-info">
+              <div class="gen-btn-title">Behavioral Questions</div>
+              <div class="gen-btn-desc">STAR-method questions tied to core competencies</div>
+            </div>
+            <div class="gen-btn-actions">
+              <span class="gen-btn-badge d-none" id="behavioralBadge"><i class="bi bi-check-circle-fill text-success me-1"></i>Generated</span>
+              <button class="btn btn-primary" id="genBehavioralBtn" disabled>
+                <i class="bi bi-lightning-charge me-1"></i>Generate
+              </button>
+            </div>
+          </div>
+
+          <div class="gen-btn-card gen-btn-card-tips" id="genCard-tips">
+            <div class="gen-btn-icon"><i class="bi bi-lightbulb-fill"></i></div>
+            <div class="gen-btn-info">
+              <div class="gen-btn-title">Preparation Tips</div>
+              <div class="gen-btn-desc">Personalised study plan, common mistakes &amp; company strategy</div>
+            </div>
+            <div class="gen-btn-actions">
+              <span class="gen-btn-badge d-none" id="tipsBadge"><i class="bi bi-check-circle-fill text-success me-1"></i>Generated</span>
+              <button class="btn btn-outline-secondary" id="generateTipsBtn" disabled>
+                <i class="bi bi-lightbulb me-1"></i>Generate
+              </button>
+            </div>
+          </div>
+
+        </div><!-- /gen-btn-grid -->
+
+        <!-- Generate All shortcut -->
+        <div class="mt-4 pt-3 border-top" style="border-color:var(--border-color)!important">
+          <button class="btn btn-primary btn-lg w-100" id="generateBtn" disabled>
+            <i class="bi bi-lightning-charge me-2"></i>Generate All Questions at Once
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Loading Animation ────────────────────────────────────────────── -->
+    <div class="loading-overlay" id="loadingOverlay">
+      <div class="loading-content">
+        <div class="loading-rings">
+          <div class="ring ring-1"></div>
+          <div class="ring ring-2"></div>
+          <div class="ring ring-3"></div>
+          <div class="loading-icon"><i class="bi bi-cpu-fill"></i></div>
+        </div>
+        <h5 class="loading-title" id="loadingTitle">IBM Granite is thinking…</h5>
+        <p class="loading-subtitle" id="loadingSubtitle">Analysing your resume and crafting personalised questions</p>
+        <div class="loading-progress">
+          <div class="loading-bar"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Results Area ─────────────────────────────────────────────────── -->
+    <div id="resultsArea" class="d-none">
+
+      <!-- Question Tabs -->
+      <div class="results-header d-flex align-items-center justify-content-between mb-4 flex-wrap gap-3">
+        <div>
+          <h3 class="results-title mb-1">
+            <i class="bi bi-patch-check-fill text-primary me-2"></i>
+            Interview Questions — <span id="resultJobRole" class="text-primary"></span>
+          </h3>
+          <p class="results-subtitle mb-0">Personalised questions based on your resume &amp; role</p>
+        </div>
+        <button class="btn btn-outline-primary" id="downloadBtn">
+          <i class="bi bi-download me-2"></i>Download PDF
+        </button>
+      </div>
+
+      <ul class="nav nav-tabs results-tabs" id="resultsTabs">
+        <li class="nav-item">
+          <button class="nav-link active" data-tab="tabHR">
+            <i class="bi bi-people me-1"></i>HR Questions
+          </button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" data-tab="tabTech">
+            <i class="bi bi-code-slash me-1"></i>Technical
+          </button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" data-tab="tabBehavioral">
+            <i class="bi bi-stars me-1"></i>Behavioral
+          </button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" data-tab="tabTips">
+            <i class="bi bi-lightbulb me-1"></i>Prep Tips
+          </button>
+        </li>
+      </ul>
+
+      <div class="tab-content results-tab-content" id="resultsTabContent">
+
+        <!-- HR Questions — starts visible; others hidden -->
+        <div class="tab-pane fade show active" id="tabHR">
+          <div id="hrQuestionsContainer"></div>
+        </div>
+
+        <div class="tab-pane fade" id="tabTech">
+          <div id="technicalQuestionsContainer"></div>
+        </div>
+
+        <div class="tab-pane fade" id="tabBehavioral">
+          <div id="behavioralQuestionsContainer"></div>
+        </div>
+
+        <div class="tab-pane fade" id="tabTips">
+          <div id="tipsContainer"></div>
+        </div>
+
+      </div><!-- /tab-content -->
+    </div><!-- /resultsArea -->
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     KNOWLEDGE BASE SECTION
+════════════════════════════════════════════ -->
+<section class="kb-section py-5" id="knowledge-base">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="section-header text-center mb-4">
+          <div class="section-badge">RAG</div>
+          <h2 class="section-title">Knowledge Base</h2>
+          <p class="section-subtitle">Upload interview guides, company docs, or study materials to make answers more relevant</p>
+        </div>
+
+        <div class="app-card">
+          <div class="app-card-body">
+            <div class="upload-zone upload-zone-sm" id="kbDropZone">
+              <input type="file" id="kbFile" accept=".pdf,.txt" class="upload-input" />
+              <div class="upload-icon upload-icon-sm">
+                <i class="bi bi-database-add"></i>
+              </div>
+              <div class="upload-text">
+                <strong>Drop knowledge documents here</strong>
+                <span>or click to browse</span>
+              </div>
+              <div class="upload-hint">PDF or TXT · Max 16 MB</div>
+              <div class="upload-filename" id="kbFileName"></div>
+            </div>
+
+            <div class="d-flex gap-2 mt-3">
+              <button class="btn btn-primary flex-grow-1" id="uploadKbBtn" disabled>
+                <i class="bi bi-database-add me-2"></i>Add to Knowledge Base
+              </button>
+              <button class="btn btn-outline-danger" id="clearKbBtn" title="Clear Knowledge Base">
+                <i class="bi bi-trash3"></i>
+              </button>
+            </div>
+
+            <div class="kb-info mt-3" id="kbInfo">
+              <i class="bi bi-database me-2"></i>
+              Knowledge base: <strong id="kbChunkCount">0</strong> chunks loaded
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
